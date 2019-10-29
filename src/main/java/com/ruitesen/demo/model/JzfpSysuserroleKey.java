@@ -1,23 +1,23 @@
 package com.ruitesen.demo.model;
 
 public class JzfpSysuserroleKey {
-    private String userId;
+    private String user_id;
 
-    private String roleId;
+    private String role_id;
 
-    public String getUserId() {
-        return userId;
-    }
+	public String getUser_id() {
+		return user_id;
+	}
 
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
-    }
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
 
-    public String getRoleId() {
-        return roleId;
-    }
+	public String getRole_id() {
+		return role_id;
+	}
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId == null ? null : roleId.trim();
-    }
+	public void setRole_id(String role_id) {
+		this.role_id = role_id;
+	}
 }
