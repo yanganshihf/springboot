@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.ruitesen.demo.model;
 
 public class Test {
 	private final long id;

@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.ruitesen.demo.model;
 
 public class Person {
 	private String id;
