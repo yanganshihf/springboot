@@ -17,7 +17,6 @@
         <tr>
             <td>${c.id}</td>
             <td>${c.name}</td>
-                
         </tr>
     </c:forEach>
 </table>

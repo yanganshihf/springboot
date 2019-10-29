@@ -20,7 +20,13 @@ public class CategoryController {
         List<Category> cs=categoryMapper.findAll();
           
         m.addAttribute("cs", cs);
-          
+    
         return "listCategory";
+    }
+	
+	@RequestMapping("/login")
+    public String login(Model m) throws Exception {
+		
+        return "login";
     }
 }
