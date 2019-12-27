@@ -4,13 +4,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.websocket.OnClose;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
 import org.springframework.stereotype.Component;
-
 @ServerEndpoint("/websocket/{userId}")
 @Component
 public class WebSocketServer {
@@ -37,8 +37,36 @@ public class WebSocketServer {
 		
 		// 在线人数加1
 		addOnlineCount();
+		System.out.println(username+"加入,当前在线人数:"+ getOnlineCount());
+		try {
+			this.session.getBasicRemote().sendText("连接成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
+	/**
+	 * 连接关闭调用方法
+	 */
+	@OnClose
+	public void onClose() {
+		// 从set中出去
+		users.remove(this.username);
+		subOnlineCount();
+		System.out.println("一个连接关闭,当前在线:"+ getOnlineCount());
+	}
+	
+	/**
+	 * 减少在线人数
+	 */
+	private static synchronized void subOnlineCount() {
+		WebSocketServer.onlineCount--;
+	}
+	
+	private int getOnlineCount() {
+		 return onlineCount;
+	}
+
 	/**
 	 * 增加在线人数;
 	 */
