@@ -6,6 +6,12 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+/**
+ * 配置serverEndpoingExporter
+ * 
+ * @author yanganshi
+ *
+ */
 @SpringBootApplication
 @ServletComponentScan
 public class Application extends SpringBootServletInitializer {
