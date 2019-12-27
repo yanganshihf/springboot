@@ -35,14 +35,18 @@ public class WebSocketServer {
 	 */
 	@OnOpen
 	public void onOpen(Session session,@PathParam("userId") String username) {
+		// 为成员变量赋值
 		this.session = session;
 		this.username = username;
+		
+		// 人员存入map中
 		users.put(username, this);
 		
 		// 在线人数加1
 		addOnlineCount();
 		System.out.println(username+"加入,当前在线人数:"+ getOnlineCount());
 		try {
+			// 向前台推送消息
 			this.session.getBasicRemote().sendText("连接成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -99,7 +103,7 @@ public class WebSocketServer {
         users.get(username).session.getBasicRemote().sendText(message);
         this.session.getBasicRemote().sendText(this.username+"@"+username+": "+message);
     }
-
+    
     /**
      * 群发自定义消息
      */
