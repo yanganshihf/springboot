@@ -15,7 +15,8 @@
                 console.log("您的浏览器支持WebSocket/websocket");
             }
             //socket连接地址: 注意是ws协议
-            socket = new WebSocket("ws://localhost/websocket/"+userId);
+           // socket = new WebSocket("ws://localhost/websocket/"+userId);
+            socket = new WebSocket("ws://localhost:666/test/websocket/"+userId);
             socket.onopen = function() {
                 console.log("Socket 已打开");
             };
@@ -45,7 +46,7 @@
         //登录
         function login() {
             $.ajax({
-                url: "/login",
+                url: "login",
                 data: $("#loginForm").serialize(),
                 type: "POST",
                 success: function (userId) {
